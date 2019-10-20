@@ -24,7 +24,9 @@ def _flip(callback):
 
 
 class _Callable(object):
-    def __getitem__(self, key: T1) -> Callable[[Mapping[T1, T2]], T2]:
+    def __getitem__(
+        self, key: T1,
+    ) -> Callable[[Mapping[T1, T2]], T2]:
         return operator.itemgetter(key)
 
     __add__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(

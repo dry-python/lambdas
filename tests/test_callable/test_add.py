@@ -5,7 +5,7 @@ from lambdas import _
 
 def test_add():
     """Ensures that add works correctly."""
-    assert (_ + 2)(1) == 3
+    assert (_ + 2)(1) + 1 == 4
 
 
 def test_radd():

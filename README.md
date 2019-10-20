@@ -67,3 +67,7 @@ Work in progress:
 
 - `_.some_attribute` is not supported yet, because we need a complex `mypy` plugin for this
 - `_.method()` is not supported yet for the same reason
+- `TypedDict`s are not tested with `__getitem__`
+- `__getitem__` does not work with list and tuples (collections), only dicts (mappings)
+
+For now you will have to use regular `lamdba`s in these cases.

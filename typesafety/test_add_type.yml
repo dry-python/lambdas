@@ -1,0 +1,17 @@
+- case: callable_add_correct
+  disable_cache: true
+  main: |
+    from lambdas import _
+
+    reveal_type((_ + 1)(2))  # N: Revealed type is 'builtins.int*'
+
+
+- case: callable_add_wrong
+  disable_cache: true
+  main: |
+    from lambdas import _
+
+    reveal_type((_ + 1)('a'))
+  out: |
+    main:3: error: Argument 1 has incompatible type "str"; expected "int"
+    main:3: note: Revealed type is 'builtins.int*'

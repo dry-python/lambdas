@@ -1,0 +1,26 @@
+- case: callable_getitem_correct1
+  disable_cache: true
+  main: |
+    from lambdas import _
+
+    reveal_type(_['item']({'item': 1}))  # N: Revealed type is 'builtins.int*'
+
+
+- case: callable_getitem_correct2
+  disable_cache: true
+  main: |
+    from lambdas import _
+
+    reveal_type(_[1]({1: 'str'}))  # N: Revealed type is 'builtins.str*'
+
+
+- case: collable_getitem_wrong
+  disable_cache: true
+  main: |
+    from lambdas import _
+
+    reveal_type(_[0]({'item': 1}))
+  out: |
+    main:3: error: Dict entry 0 has incompatible type "str": "int"; expected "int": "int"
+    main:3: note: Revealed type is 'builtins.int*'
+
