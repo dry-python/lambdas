@@ -41,7 +41,7 @@ scores = [
     {'name': 'Pavel', 'score': 4},
 ]
 
-print(sorted(scores, key=lambda: item['score']))
+print(sorted(scores, key=lambda item: item['score']))
 ```
 
 And it works perfectly fine.
@@ -66,3 +66,4 @@ Like when using [`returns`](https://github.com/dry-python/returns) library.
 Work in progress:
 
 - `_.some_attribute` is not supported yet, because we need a complex `mypy` plugin for this
+- `_.method()` is not supported yet for the same reason
