@@ -1,0 +1,53 @@
+» mypy ex.py
+lambdas/__init__.py:24: error: Variable "typing_extensions.Protocol" is not valid as a type
+lambdas/__init__.py:27: error: Call to untyped function "_method" in typed context
+lambdas._Callable.center
+AttributeContext(type=lambdas._Callable, default_attr_type=def [T1] (Protocol?[T1`-1]) -> T1`-1, context=<mypy.nodes.MemberExpr object at 0x1025d0cb0>, api=<mypy.checker.TypeChecker object at 0x102d462b0>)
+
+<mypy.checker.TypeChecker object at 0x102d462b0>
+Protocol?[T1`-1]
+obj.__class__ = <class 'mypy.types.UnboundType'>
+obj.__delattr__ = <method-wrapper '__delattr__' of UnboundType object at 0x103308d50>
+obj.__dir__ = <built-in method __dir__ of UnboundType object at 0x103308d50>
+obj.__doc__ = None
+obj.__eq__ = <method-wrapper '__eq__' of UnboundType object at 0x103308d50>
+obj.__format__ = <built-in method __format__ of UnboundType object at 0x103308d50>
+obj.__ge__ = <method-wrapper '__ge__' of UnboundType object at 0x103308d50>
+obj.__getattribute__ = <method-wrapper '__getattribute__' of UnboundType object at 0x103308d50>
+obj.__gt__ = <method-wrapper '__gt__' of UnboundType object at 0x103308d50>
+obj.__hash__ = <method-wrapper '__hash__' of UnboundType object at 0x103308d50>
+obj.__init__ = <method-wrapper '__init__' of UnboundType object at 0x103308d50>
+obj.__init_subclass__ = <built-in method __init_subclass__ of type object at 0x7fe003549860>
+obj.__le__ = <method-wrapper '__le__' of UnboundType object at 0x103308d50>
+obj.__lt__ = <method-wrapper '__lt__' of UnboundType object at 0x103308d50>
+obj.__module__ = 'mypy.types'
+obj.__ne__ = <method-wrapper '__ne__' of UnboundType object at 0x103308d50>
+obj.__new__ = <built-in method __new__ of type object at 0x7fe003549860>
+obj.__reduce__ = <built-in method __reduce__ of UnboundType object at 0x103308d50>
+obj.__reduce_ex__ = <built-in method __reduce_ex__ of UnboundType object at 0x103308d50>
+obj.__repr__ = <method-wrapper '__repr__' of UnboundType object at 0x103308d50>
+obj.__setattr__ = <method-wrapper '__setattr__' of UnboundType object at 0x103308d50>
+obj.__sizeof__ = <built-in method __sizeof__ of UnboundType object at 0x103308d50>
+obj.__str__ = <method-wrapper '__str__' of UnboundType object at 0x103308d50>
+obj.__subclasshook__ = <built-in method __subclasshook__ of type object at 0x7fe003549860>
+obj.accept = <built-in method accept of UnboundType object at 0x103308d50>
+obj.args = [T1`-1]
+obj.can_be_false = True
+obj.can_be_false_default = <built-in method can_be_false_default of UnboundType object at 0x103308d50>
+obj.can_be_true = True
+obj.can_be_true_default = <built-in method can_be_true_default of UnboundType object at 0x103308d50>
+obj.column = 49
+obj.copy_modified = <built-in method copy_modified of UnboundType object at 0x103308d50>
+obj.deserialize = <built-in method deserialize of type object at 0x7fe003549860>
+obj.empty_tuple_index = False
+obj.end_line = None
+obj.get_column = <built-in method get_column of UnboundType object at 0x103308d50>
+obj.get_line = <built-in method get_line of UnboundType object at 0x103308d50>
+obj.line = 24
+obj.name = 'Protocol'
+obj.optional = False
+obj.original_str_expr = None
+obj.original_str_fallback = None
+obj.serialize = <built-in method serialize of UnboundType object at 0x103308d50>
+obj.set_line = <built-in method set_line of UnboundType object at 0x103308d50>
+ex.py:16: note: Revealed type is '<nothing>'
