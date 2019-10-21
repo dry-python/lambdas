@@ -1,0 +1,23 @@
+- case: callable_getattr_attr_correct
+  disable_cache: true
+  main: |
+    from lambdas import _
+
+    class Test(object):
+        attr: int
+
+    reveal_type((_.attr)(Test()))  # N: Revealed type is 'builtins.int*'
+
+
+- case: callable_getattr_attr_incorrect
+  disable_cache: true
+  main: |
+    from lambdas import _
+
+    class Test(object):
+        other: int
+
+    reveal_type((_.attr)(Test()))
+  out: |
+    main:6: error: Argument 1 has incompatible type "Test"; expected "_LambdaDynamicProtocol[<nothing>]"
+    main:6: note: Revealed type is '<nothing>'

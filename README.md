@@ -27,7 +27,16 @@ Write short and fully-typed `lambda`s where you need them.
 pip install lambdas
 ```
 
-We also recommend to use the same `mypy` settings [we use](https://github.com/wemake-services/wemake-python-styleguide/blob/master/styles/mypy.toml).
+You also need to configure `mypy` correctly and install our plugin:
+
+```ini
+# In setup.cfg or mypy.ini:
+[mypy]
+plugins =
+  lambdas.contrib.mypy.lambdas_plugin
+```
+
+We recommend to use the same `mypy` settings [we use](https://github.com/wemake-services/wemake-python-styleguide/blob/master/styles/mypy.toml).
 
 
 ## Examples
@@ -50,6 +59,8 @@ Except, that you have to do a lot of typing for such a simple operation.
 That's where `lambdas` helper steps in:
 
 ```python
+from lambdas import _
+
 scores = [
     {'name': 'Nikita', 'score': 2},
     {'name': 'Oleg', 'score': 1},
@@ -65,9 +76,9 @@ Like when using [`returns`](https://github.com/dry-python/returns) library.
 
 Work in progress:
 
-- `_.some_attribute` is not supported yet, because we need a complex `mypy` plugin for this
 - `_.method()` is not supported yet for the same reason
 - `TypedDict`s are not tested with `__getitem__`
 - `__getitem__` does not work with list and tuples (collections), only dicts (mappings)
+- complex extressions like `_ * 2 + 1` are not tested
 
 For now you will have to use regular `lamdba`s in these cases.
