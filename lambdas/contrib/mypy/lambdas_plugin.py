@@ -6,9 +6,13 @@ from mypy.nodes import MemberExpr
 from mypy.plugin import AttributeContext, Plugin
 
 
-def _mutate_field_name(ctx: AttributeContext):
+def _mutate_field_name(ctx):
     default = ctx.default_attr_type.arg_types[0]
-    actual_field = default.type.names['lambdas_generic_field'].copy()
+    if not default.type.names:
+        return
+
+    old_field_name = next(iter(default.type.names.keys()))
+    actual_field = default.type.names[old_field_name].copy()
     actual_field.cross_ref = None
 
     actual_field.node._name = ctx.context.name
@@ -17,7 +21,7 @@ def _mutate_field_name(ctx: AttributeContext):
     actual_field.node._fullname = '.'.join(fullname)
 
     default.type.names[ctx.context.name] = actual_field
-    default.type.names.pop('lambdas_generic_field')
+    default.type.names.pop(old_field_name)
 
 
 def _analyze_lambda(plugin: Plugin):
