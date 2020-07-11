@@ -9,7 +9,7 @@ from typing_extensions import Protocol
 T1 = TypeVar('T1')
 T2 = TypeVar('T2')
 
-_Number = Union[int, float]
+_Number = Union[int, float, complex]
 
 
 def _fmap(callback):
