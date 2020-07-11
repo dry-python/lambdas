@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 
 import operator
-from typing import Callable, Mapping, TypeVar
+from functools import partial, reduce
+from typing import Callable, List, Mapping, TypeVar, Union
 
 from typing_extensions import Protocol
 
 T1 = TypeVar('T1')
 T2 = TypeVar('T2')
+
+_Number = Union[int, float]
 
 
 def _fmap(callback):
@@ -43,6 +46,86 @@ class _LambdaDynamicProtocol(Protocol[T1]):
     """
 
     lambdas_generic_field: T1
+
+
+class _MathExpression(object):  # noqa: WPS214
+    """
+    Mathmatical expression callable class.
+
+    This class helps us to build an callable with complex mathematical
+    expression, basically it's the substitute of `x` in a expression.
+    When we call this class the number passed trought the instance will be
+    the `x`.
+
+    See the example below:
+
+        >>> from lambdas import _MathExpression
+        >>> complex_expression = (10 ** 2) / _MathExpression() * 10
+        >>> complex_expression(2)
+        500.0
+
+    """
+
+    def __init__(self) -> None:
+        self._operations: List[Callable[[_Number], _Number]] = []
+
+    def __add__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.add), other)
+
+    def __sub__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.sub), other)
+
+    def __mul__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.mul), other)
+
+    def __floordiv__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.floordiv), other)
+
+    def __truediv__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.truediv), other)
+
+    def __mod__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.mod), other)
+
+    def __pow__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.pow), other)
+
+    def __radd__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.add, other)
+
+    def __rsub__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.sub, other)
+
+    def __rmul__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.mul, other)
+
+    def __rfloordiv__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.floordiv, other)
+
+    def __rtruediv__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.truediv, other)
+
+    def __rmod__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.mod, other)
+
+    def __rpow__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.pow, other)
+
+    def __call__(self, number: _Number) -> _Number:
+        first_operation, *rest_of_the_operations = self._operations
+        return reduce(
+            lambda partial_result, operation: operation(partial_result),
+            rest_of_the_operations,
+            first_operation(number),
+        )
+
+    def _add_operation(
+        self,
+        operation: Callable[[_Number, _Number], _Number],
+        other: _Number,
+    ) -> '_MathExpression':
+        self._operations.append(partial(operation, other))
+        return self
 
 
 class _Callable(object):
