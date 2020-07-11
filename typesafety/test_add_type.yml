@@ -13,5 +13,5 @@
 
     reveal_type((_ + 1)('a'))
   out: |
-    main:3: error: Argument 1 has incompatible type "str"; expected "Union[int, float, complex]"
+    main:3: error: Argument 1 to "__call__" of "_MathExpression" has incompatible type "str"; expected "Union[int, float, complex]"
     main:3: note: Revealed type is 'Union[builtins.int, builtins.float, builtins.complex]'

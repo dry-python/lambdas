@@ -155,46 +155,46 @@ class _Callable(object):  # noqa: WPS214
     ) -> Callable[[Mapping[T1, T2]], T2]:
         return operator.itemgetter(key)
 
-    def __add__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __add__(self, other: _Number) -> _MathExpression:
         return _MathExpression() + other
 
-    def __sub__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __sub__(self, other: _Number) -> _MathExpression:
         return _MathExpression() - other
 
-    def __mul__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __mul__(self, other: _Number) -> _MathExpression:
         return _MathExpression() * other
 
-    def __floordiv__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __floordiv__(self, other: _Number) -> _MathExpression:
         return _MathExpression() // other
 
-    def __truediv__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __truediv__(self, other: _Number) -> _MathExpression:
         return _MathExpression() / other
 
-    def __mod__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __mod__(self, other: _Number) -> _MathExpression:
         return _MathExpression() % other
 
-    def __pow__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __pow__(self, other: _Number) -> _MathExpression:
         return _MathExpression() ** other
 
-    def __radd__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __radd__(self, other: _Number) -> _MathExpression:
         return other + _MathExpression()
 
-    def __rsub__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __rsub__(self, other: _Number) -> _MathExpression:
         return other - _MathExpression()
 
-    def __rmul__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __rmul__(self, other: _Number) -> _MathExpression:
         return other * _MathExpression()
 
-    def __rfloordiv__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __rfloordiv__(self, other: _Number) -> _MathExpression:
         return other // _MathExpression()
 
-    def __rtruediv__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __rtruediv__(self, other: _Number) -> _MathExpression:
         return other / _MathExpression()
 
-    def __rmod__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __rmod__(self, other: _Number) -> _MathExpression:
         return other % _MathExpression()  # noqa: S001
 
-    def __rpow__(self, other: _Number) -> Callable[[_Number], _Number]:
+    def __rpow__(self, other: _Number) -> _MathExpression:
         return other ** _MathExpression()
 
     __and__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
