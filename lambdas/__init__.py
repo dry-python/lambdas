@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 
 import operator
-from typing import Callable, Mapping, TypeVar
+from functools import partial, reduce
+from typing import Callable, List, Mapping, TypeVar, Union
 
 from typing_extensions import Protocol
 
 T1 = TypeVar('T1')
 T2 = TypeVar('T2')
+
+_Number = Union[int, float, complex]
 
 
 def _fmap(callback):
@@ -45,7 +48,87 @@ class _LambdaDynamicProtocol(Protocol[T1]):
     lambdas_generic_field: T1
 
 
-class _Callable(object):
+class _MathExpression(object):  # noqa: WPS214
+    """
+    Mathmatical expression callable class.
+
+    This class helps us to build an callable with complex mathematical
+    expression, basically it's the substitute of `x` in a expression.
+    When we call this class the number passed trought the instance will be
+    the `x`.
+
+    See the example below:
+
+        >>> from lambdas import _MathExpression
+        >>> complex_expression = (10 ** 2) / _MathExpression() * 10
+        >>> complex_expression(2)
+        500.0
+
+    """
+
+    def __init__(self) -> None:
+        self._operations: List[Callable[[_Number], _Number]] = []
+
+    def __add__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.add), other)
+
+    def __sub__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.sub), other)
+
+    def __mul__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.mul), other)
+
+    def __floordiv__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.floordiv), other)
+
+    def __truediv__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.truediv), other)
+
+    def __mod__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.mod), other)
+
+    def __pow__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(_flip(operator.pow), other)
+
+    def __radd__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.add, other)
+
+    def __rsub__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.sub, other)
+
+    def __rmul__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.mul, other)
+
+    def __rfloordiv__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.floordiv, other)
+
+    def __rtruediv__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.truediv, other)
+
+    def __rmod__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.mod, other)
+
+    def __rpow__(self, other: _Number) -> '_MathExpression':
+        return self._add_operation(operator.pow, other)
+
+    def __call__(self, number: _Number) -> _Number:
+        first_operation, *rest_of_the_operations = self._operations
+        return reduce(
+            lambda partial_result, operation: operation(partial_result),
+            rest_of_the_operations,
+            first_operation(number),
+        )
+
+    def _add_operation(
+        self,
+        operation: Callable[[_Number, _Number], _Number],
+        other: _Number,
+    ) -> '_MathExpression':
+        self._operations.append(partial(operation, other))
+        return self
+
+
+class _Callable(object):  # noqa: WPS214
     """
     Short lambda implementation.
 
@@ -72,21 +155,47 @@ class _Callable(object):
     ) -> Callable[[Mapping[T1, T2]], T2]:
         return operator.itemgetter(key)
 
-    __add__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        operator.add,
-    )
-    __mul__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        operator.mul,
-    )
-    __sub__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        operator.sub,
-    )
-    __mod__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        operator.mod,
-    )
-    __pow__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        operator.pow,
-    )
+    def __add__(self, other: _Number) -> _MathExpression:
+        return _MathExpression() + other
+
+    def __sub__(self, other: _Number) -> _MathExpression:
+        return _MathExpression() - other
+
+    def __mul__(self, other: _Number) -> _MathExpression:
+        return _MathExpression() * other
+
+    def __floordiv__(self, other: _Number) -> _MathExpression:
+        return _MathExpression() // other
+
+    def __truediv__(self, other: _Number) -> _MathExpression:
+        return _MathExpression() / other
+
+    def __mod__(self, other: _Number) -> _MathExpression:
+        return _MathExpression() % other
+
+    def __pow__(self, other: _Number) -> _MathExpression:
+        return _MathExpression() ** other
+
+    def __radd__(self, other: _Number) -> _MathExpression:
+        return other + _MathExpression()
+
+    def __rsub__(self, other: _Number) -> _MathExpression:
+        return other - _MathExpression()
+
+    def __rmul__(self, other: _Number) -> _MathExpression:
+        return other * _MathExpression()
+
+    def __rfloordiv__(self, other: _Number) -> _MathExpression:
+        return other // _MathExpression()
+
+    def __rtruediv__(self, other: _Number) -> _MathExpression:
+        return other / _MathExpression()
+
+    def __rmod__(self, other: _Number) -> _MathExpression:
+        return other % _MathExpression()  # noqa: S001
+
+    def __rpow__(self, other: _Number) -> _MathExpression:
+        return other ** _MathExpression()
 
     __and__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
         operator.and_,
@@ -97,17 +206,7 @@ class _Callable(object):
     __xor__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
         operator.xor,
     )
-
-    __div__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        operator.truediv,
-    )
     __divmod__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(divmod)
-    __floordiv__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        operator.floordiv,
-    )
-    __truediv__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        operator.truediv,
-    )
 
     __lshift__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
         operator.lshift,
@@ -149,32 +248,8 @@ class _Callable(object):
         operator.invert,
     )
 
-    __radd__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        _flip(operator.add),
-    )
-    __rmul__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        _flip(operator.mul),
-    )
-    __rsub__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        _flip(operator.sub),
-    )
-    __rmod__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        _flip(operator.mod),
-    )
-    __rpow__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        _flip(operator.pow),
-    )
-    __rdiv__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        _flip(operator.truediv),
-    )
     __rdivmod__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
         _flip(divmod),
-    )
-    __rtruediv__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        _flip(operator.truediv),
-    )
-    __rfloordiv__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
-        _flip(operator.floordiv),
     )
 
     __rlshift__: Callable[['_Callable', T1], Callable[[T1], T1]] = _fmap(
