@@ -44,13 +44,14 @@ We recommend to use the same `mypy` settings [we use](https://github.com/wemake-
 Imagine that you need to sort an array of dictionaries like so:
 
 ```python
-scores = [
-    {'name': 'Nikita', 'score': 2},
-    {'name': 'Oleg', 'score': 1},
-    {'name': 'Pavel', 'score': 4},
-]
+>>> scores = [
+...     {'name': 'Nikita', 'score': 2},
+...     {'name': 'Oleg', 'score': 1},
+...     {'name': 'Pavel', 'score': 4},
+... ]
 
-print(sorted(scores, key=lambda item: item['score']))
+>>> print(sorted(scores, key=lambda item: item['score']))
+[{'name': 'Oleg', 'score': 1}, {'name': 'Nikita', 'score': 2}, {'name': 'Pavel', 'score': 4}]
 ```
 
 And it works perfectly fine.
@@ -59,15 +60,16 @@ Except, that you have to do a lot of typing for such a simple operation.
 That's where `lambdas` helper steps in:
 
 ```python
-from lambdas import _
+>>> from lambdas import _
 
-scores = [
-    {'name': 'Nikita', 'score': 2},
-    {'name': 'Oleg', 'score': 1},
-    {'name': 'Pavel', 'score': 4},
-]
+>>> scores = [
+...     {'name': 'Nikita', 'score': 2},
+...     {'name': 'Oleg', 'score': 1},
+...     {'name': 'Pavel', 'score': 4},
+... ]
 
-print(sorted(scores, key=_['score']))
+>>> print(sorted(scores, key=_['score']))
+[{'name': 'Oleg', 'score': 1}, {'name': 'Nikita', 'score': 2}, {'name': 'Pavel', 'score': 4}]
 ```
 
 It might really save you a lot of effort,
