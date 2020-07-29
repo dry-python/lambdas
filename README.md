@@ -44,13 +44,14 @@ We recommend to use the same `mypy` settings [we use](https://github.com/wemake-
 Imagine that you need to sort an array of dictionaries like so:
 
 ```python
-scores = [
-    {'name': 'Nikita', 'score': 2},
-    {'name': 'Oleg', 'score': 1},
-    {'name': 'Pavel', 'score': 4},
-]
+>>> scores = [
+...     {'name': 'Nikita', 'score': 2},
+...     {'name': 'Oleg', 'score': 1},
+...     {'name': 'Pavel', 'score': 4},
+... ]
 
-print(sorted(scores, key=lambda item: item['score']))
+>>> print(sorted(scores, key=lambda item: item['score']))
+[{'name': 'Oleg', 'score': 1}, {'name': 'Nikita', 'score': 2}, {'name': 'Pavel', 'score': 4}]
 ```
 
 And it works perfectly fine.
@@ -59,26 +60,39 @@ Except, that you have to do a lot of typing for such a simple operation.
 That's where `lambdas` helper steps in:
 
 ```python
-from lambdas import _
+>>> from lambdas import _
 
-scores = [
-    {'name': 'Nikita', 'score': 2},
-    {'name': 'Oleg', 'score': 1},
-    {'name': 'Pavel', 'score': 4},
-]
+>>> scores = [
+...     {'name': 'Nikita', 'score': 2},
+...     {'name': 'Oleg', 'score': 1},
+...     {'name': 'Pavel', 'score': 4},
+... ]
 
-print(sorted(scores, key=_['score']))
+>>> print(sorted(scores, key=_['score']))
+[{'name': 'Oleg', 'score': 1}, {'name': 'Nikita', 'score': 2}, {'name': 'Pavel', 'score': 4}]
 ```
 
 It might really save you a lot of effort,
 when you use a lot of `lambda` functions.
 Like when using [`returns`](https://github.com/dry-python/returns) library.
 
+We can easily create math expressions:
+
+```python
+>>> from lambdas import _
+
+>>> math_expression = _ * 2 + 1
+>>> print(math_expression(10))
+21
+>>> complex_math_expression = 50 / (_ ** 2) * 2
+>>> print(complex_math_expression(5))
+100.0
+```
+
 Work in progress:
 
 - `_.method()` is not supported yet for the same reason
 - `TypedDict`s are not tested with `__getitem__`
 - `__getitem__` does not work with list and tuples (collections), only dicts (mappings)
-- complex extressions like `_ * 2 + 1` are not tested
 
 For now you will have to use regular `lamdba`s in these cases.
