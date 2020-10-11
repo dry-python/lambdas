@@ -26,7 +26,6 @@ jobs:
 
       - name : script
         run : |
-          sudo apt-get install python${{ matrix.python-version }}-venv
           poetry run flake8 .
           poetry run mypy lambdas tests/**/*.py
           poetry run pytest
