@@ -1075,7 +1075,7 @@ test = ["pytest", "pytest-cov", "html5lib", "flake8 (>=3.5.0)", "flake8-import-o
 
 [[package]]
 name = "sphinx-autodoc-typehints"
-version = "1.8.0"
+version = "1.10.3"
 description = "Type hints (PEP 484) support for the Sphinx autodoc extension"
 category = "dev"
 optional = false
@@ -1085,7 +1085,7 @@ python-versions = ">=3.5.2"
 Sphinx = ">=2.1"
 
 [package.extras]
-test = ["pytest (>=3.1.0)", "typing-extensions (>=3.5)", "dataclasses"]
+test = ["pytest (>=3.1.0)", "typing-extensions (>=3.5)", "sphobjinv (>=2.0)", "dataclasses"]
 type_comments = ["typed-ast (>=1.4.0)"]
 
 [[package]]
@@ -1324,7 +1324,7 @@ testing = ["pathlib2", "contextlib2", "unittest2"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "8adb6752b8745a61fe7e76feb2a55ddaae3fa33062943759a92a1c64a5f8a180"
+content-hash = "880da54dd5d94d63b4a5c8c363f6ebd3e171028d678b8bc63826a6d7d8c69ee5"
 
 [metadata.files]
 alabaster = [
@@ -1797,8 +1797,8 @@ sphinx = [
     {file = "Sphinx-2.2.0.tar.gz", hash = "sha256:0d586b0f8c2fc3cc6559c5e8fd6124628110514fda0e5d7c82e682d749d2e845"},
 ]
 sphinx-autodoc-typehints = [
-    {file = "sphinx-autodoc-typehints-1.8.0.tar.gz", hash = "sha256:0d968ec3ee4f7fe7695ab6facf5cd2d74d3cea67584277458ad9b2788ebbcc3b"},
-    {file = "sphinx_autodoc_typehints-1.8.0-py3-none-any.whl", hash = "sha256:8edca714fd3de8e43467d7e51dd3812fe999f8874408a639f7c38a9e1a5a4eb3"},
+    {file = "sphinx-autodoc-typehints-1.10.3.tar.gz", hash = "sha256:a6b3180167479aca2c4d1ed3b5cb044a70a76cccd6b38662d39288ebd9f0dff0"},
+    {file = "sphinx_autodoc_typehints-1.10.3-py3-none-any.whl", hash = "sha256:27c9e6ef4f4451766ab8d08b2d8520933b97beb21c913f3df9ab2e59b56e6c6c"},
 ]
 sphinx-typlog-theme = [
     {file = "sphinx_typlog_theme-0.8.0-py2.py3-none-any.whl", hash = "sha256:b0ab728ab31d071523af0229bcb6427a13493958b3fc2bb7db381520fab77de4"},
