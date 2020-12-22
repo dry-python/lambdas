@@ -63,17 +63,6 @@ six = ">=1.10.0"
 stevedore = ">=1.20.0"
 
 [[package]]
-name = "capturer"
-version = "2.4"
-description = "Easily capture stdout/stderr of the current process and subprocesses"
-category = "dev"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-humanfriendly = ">=2.1"
-
-[[package]]
 name = "certifi"
 version = "2019.9.11"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -508,17 +497,6 @@ python-versions = ">=3.0, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 gitdb2 = ">=2.0.0"
 
 [[package]]
-name = "humanfriendly"
-version = "4.18"
-description = "Human friendly output for text interfaces using Python"
-category = "dev"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-pyreadline = {version = "*", markers = "sys_platform == \"win32\""}
-
-[[package]]
 name = "identify"
 version = "1.5.10"
 description = "File identification library for Python"
@@ -831,14 +809,6 @@ optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
-name = "pyreadline"
-version = "2.1"
-description = "A python implmementation of GNU readline."
-category = "dev"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "pytest"
 version = "5.2.1"
 description = "pytest: simple powerful testing with Python"
@@ -877,14 +847,13 @@ testing = ["fields", "hunter", "process-tests (==2.0.2)", "six", "virtualenv"]
 
 [[package]]
 name = "pytest-mypy-plugins"
-version = "1.1.0"
+version = "1.3.0"
 description = "pytest plugin for writing tests for mypy plugins"
 category = "dev"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
-capturer = "*"
 decorator = "*"
 mypy = ">=0.730"
 pytest = "*"
@@ -1325,7 +1294,7 @@ testing = ["pathlib2", "contextlib2", "unittest2"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "1b9db578ed64269f2151069e37c9b266b53cec7721722073a052b2535e8823a4"
+content-hash = "ac890d10fbdeea984a62f3a882f91b1bc8955980f6bf551628cc9a84e23d2c0c"
 
 [metadata.files]
 alabaster = [
@@ -1351,10 +1320,6 @@ babel = [
 bandit = [
     {file = "bandit-1.6.2-py2.py3-none-any.whl", hash = "sha256:336620e220cf2d3115877685e264477ff9d9abaeb0afe3dc7264f55fa17a3952"},
     {file = "bandit-1.6.2.tar.gz", hash = "sha256:41e75315853507aa145d62a78a2a6c5e3240fe14ee7c601459d0df9418196065"},
-]
-capturer = [
-    {file = "capturer-2.4-py2.py3-none-any.whl", hash = "sha256:2c9d507516e5e86c442ff0c45b08cd0810d314e62bbea7e96ba0f473389d17dc"},
-    {file = "capturer-2.4.tar.gz", hash = "sha256:090142a58f3f85def3a7dd55d9024d0d1a86d1a88aaf9317c0f146244994a615"},
 ]
 certifi = [
     {file = "certifi-2019.9.11-py2.py3-none-any.whl", hash = "sha256:fd7c7c74727ddcf00e9acd26bba8da604ffec95bf1c2144e67aff7a8b50e6cef"},
@@ -1537,10 +1502,6 @@ gitpython = [
     {file = "GitPython-3.0.3-py3-none-any.whl", hash = "sha256:6e97b9f0954807f30c2dd8e3165731ed6c477a1b365f194b69d81d7940a08332"},
     {file = "GitPython-3.0.3.tar.gz", hash = "sha256:631263cc670aa56ce3d3c414cf0fe2e840f2e913514b138ea28d88a477bbcd21"},
 ]
-humanfriendly = [
-    {file = "humanfriendly-4.18-py2.py3-none-any.whl", hash = "sha256:23057b10ad6f782e7bc3a20e3cb6768ab919f619bbdc0dd75691121bbde5591d"},
-    {file = "humanfriendly-4.18.tar.gz", hash = "sha256:33ee8ceb63f1db61cce8b5c800c531e1a61023ac5488ccde2ba574a85be00a85"},
-]
 identify = [
     {file = "identify-1.5.10-py2.py3-none-any.whl", hash = "sha256:cc86e6a9a390879dcc2976cef169dd9cc48843ed70b7380f321d1b118163c60e"},
     {file = "identify-1.5.10.tar.gz", hash = "sha256:943cd299ac7f5715fcb3f684e2fc1594c1e0f22a90d15398e5888143bd4144b5"},
@@ -1694,11 +1655,6 @@ pyparsing = [
     {file = "pyparsing-2.4.2-py2.py3-none-any.whl", hash = "sha256:d9338df12903bbf5d65a0e4e87c2161968b10d2e489652bb47001d82a9b028b4"},
     {file = "pyparsing-2.4.2.tar.gz", hash = "sha256:6f98a7b9397e206d78cc01df10131398f1c8b8510a2f4d97d9abd82e1aacdd80"},
 ]
-pyreadline = [
-    {file = "pyreadline-2.1.win-amd64.exe", hash = "sha256:9ce5fa65b8992dfa373bddc5b6e0864ead8f291c94fbfec05fbd5c836162e67b"},
-    {file = "pyreadline-2.1.win32.exe", hash = "sha256:65540c21bfe14405a3a77e4c085ecfce88724743a4ead47c66b84defcf82c32e"},
-    {file = "pyreadline-2.1.zip", hash = "sha256:4530592fc2e85b25b1a9f79664433da09237c1a270e4d78ea5aa3a2c7229e2d1"},
-]
 pytest = [
     {file = "pytest-5.2.1-py3-none-any.whl", hash = "sha256:7e4800063ccfc306a53c461442526c5571e1462f61583506ce97e4da6a1d88c8"},
     {file = "pytest-5.2.1.tar.gz", hash = "sha256:ca563435f4941d0cb34767301c27bc65c510cb82e90b9ecf9cb52dc2c63caaa0"},
@@ -1708,8 +1664,8 @@ pytest-cov = [
     {file = "pytest_cov-2.8.1-py2.py3-none-any.whl", hash = "sha256:cdbdef4f870408ebdbfeb44e63e07eb18bb4619fae852f6e760645fa36172626"},
 ]
 pytest-mypy-plugins = [
-    {file = "pytest-mypy-plugins-1.1.0.tar.gz", hash = "sha256:2aa73a7081dbb03dadfa3d2e7bc8d06544931799ef0d26d77c76519bcbaabe4b"},
-    {file = "pytest_mypy_plugins-1.1.0-py3-none-any.whl", hash = "sha256:fc754203133ab528e66b0feb3466a4a2f6a5ac274e0d9c571d42c1e9c5d24aa4"},
+    {file = "pytest-mypy-plugins-1.3.0.tar.gz", hash = "sha256:7920a38520f914e849cafc81582318673bec8924ff71ee2d0f98dc738995d06d"},
+    {file = "pytest_mypy_plugins-1.3.0-py3-none-any.whl", hash = "sha256:db18943f8775260308a11948a42739c6789bbab8a1bafb64103e4429ce31dfc0"},
 ]
 pytest-randomly = [
     {file = "pytest-randomly-3.1.0.tar.gz", hash = "sha256:5facc2b5ac56e36b9c4bf14f49cc7b4c95427835bbf4a3c739b71a5f5f82d58a"},
