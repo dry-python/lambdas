@@ -12,7 +12,8 @@ T2 = TypeVar('T2')
 _Number = Union[int, float, complex]
 
 
-def _fmap(callback):
+def _fmap(callback):  # pragma: nocover
+    # TODO: Remove `pragma` after https://github.com/dry-python/lambdas/issues/4
     """Convers callback to instance method with two arguments."""
     def decorator(self, second):
         return lambda first: callback(first, second)
