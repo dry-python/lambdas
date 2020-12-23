@@ -871,14 +871,14 @@ pyyaml = "*"
 
 [[package]]
 name = "pytest-randomly"
-version = "3.1.0"
+version = "3.5.0"
 description = "Pytest plugin to randomly order tests and control random.seed."
 category = "dev"
 optional = false
 python-versions = ">=3.5"
 
 [package.dependencies]
-entrypoints = "*"
+importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 pytest = "*"
 
 [[package]]
@@ -1304,7 +1304,7 @@ testing = ["pathlib2", "contextlib2", "unittest2"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "ed8d0196bfecf1cd60bf9e821b87ff6bc518441db3aea1017b020d4ca24b5750"
+content-hash = "4e55e2470ca45712c96803da0876f2198c714b9297023dd17acd27664800c71d"
 
 [metadata.files]
 alabaster = [
@@ -1681,8 +1681,8 @@ pytest-mypy-plugins = [
     {file = "pytest_mypy_plugins-1.5.0-py3-none-any.whl", hash = "sha256:ce569074d8b9ce8a84cebaf9e7859399f238b1d3fd19dc4643eb41b2d60d7dc4"},
 ]
 pytest-randomly = [
-    {file = "pytest-randomly-3.1.0.tar.gz", hash = "sha256:5facc2b5ac56e36b9c4bf14f49cc7b4c95427835bbf4a3c739b71a5f5f82d58a"},
-    {file = "pytest_randomly-3.1.0-py3-none-any.whl", hash = "sha256:9256c9ff88466f7bf9794d2eeeea8fbf1cd1bc8df1b3575df59e89b8813bffaa"},
+    {file = "pytest-randomly-3.5.0.tar.gz", hash = "sha256:440cec143fd9b0adeb072006c71e0294402a2bc2ccd08079c2341087ba4cf2d1"},
+    {file = "pytest_randomly-3.5.0-py3-none-any.whl", hash = "sha256:9db10d160237f3f8ee60cef72e4cb9ea88d2893c9dd5c8aa334b060cdeb67c3a"},
 ]
 python-slugify = [
     {file = "python-slugify-3.0.6.tar.gz", hash = "sha256:8653d589308c91c67fe5c97a2afda0cfac9492061e69c0db90d1aef68fcd2332"},
