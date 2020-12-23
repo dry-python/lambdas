@@ -863,7 +863,7 @@ testing = ["fields", "hunter", "process-tests (==2.0.2)", "six", "pytest-xdist",
 
 [[package]]
 name = "pytest-mypy-plugins"
-version = "1.5.0"
+version = "1.6.1"
 description = "pytest plugin for writing tests for mypy plugins"
 category = "dev"
 optional = false
@@ -871,9 +871,9 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 decorator = "*"
-mypy = ">=0.730"
+mypy = ">=0.790"
 pystache = ">=0.5.4"
-pytest = ">=5.4.0"
+pytest = ">=6.0.0"
 pyyaml = "*"
 
 [[package]]
@@ -1292,7 +1292,7 @@ testing = ["pathlib2", "contextlib2", "unittest2"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "95392a44a17b9b848883324223411d1845391b5583e4b09b923ad6d1f2fb23af"
+content-hash = "0074adbd96636583067ece9bf83363f184d3a4cc3ab6201fab3d12c8b44d06ce"
 
 [metadata.files]
 alabaster = [
@@ -1669,8 +1669,8 @@ pytest-cov = [
     {file = "pytest_cov-2.10.1-py2.py3-none-any.whl", hash = "sha256:45ec2d5182f89a81fc3eb29e3d1ed3113b9e9a873bcddb2a71faaab066110191"},
 ]
 pytest-mypy-plugins = [
-    {file = "pytest-mypy-plugins-1.5.0.tar.gz", hash = "sha256:bd76959cbd34765ad350bac7c0c923276dff59ffebbd66bb4becc95baa0e600f"},
-    {file = "pytest_mypy_plugins-1.5.0-py3-none-any.whl", hash = "sha256:ce569074d8b9ce8a84cebaf9e7859399f238b1d3fd19dc4643eb41b2d60d7dc4"},
+    {file = "pytest-mypy-plugins-1.6.1.tar.gz", hash = "sha256:f73986d4d78057f259518b81b019896985b19a698ce41deb6996ec73c3d7fcc6"},
+    {file = "pytest_mypy_plugins-1.6.1-py3-none-any.whl", hash = "sha256:b7f9c736f498a520c42ab393069b6e272036c2e4409d777403566e353743d603"},
 ]
 pytest-randomly = [
     {file = "pytest-randomly-3.5.0.tar.gz", hash = "sha256:440cec143fd9b0adeb072006c71e0294402a2bc2ccd08079c2341087ba4cf2d1"},
