@@ -2,8 +2,8 @@
 
 -----
 
-[![Build Status](https://travis-ci.org/dry-python/lambdas.svg?branch=master)](https://travis-ci.org/dry-python/lambdas)
-[![Coverage Status](https://coveralls.io/repos/github/dry-python/lambdas/badge.svg?branch=master)](https://coveralls.io/github/dry-python/lambdas?branch=master)
+[![Build Status](https://github.com/dry-python/lambdas/workflows/test/badge.svg?branch=master&event=push)](https://github.com/dry-python/lambdas/actions?query=workflow%3Atest)
+[![codecov](https://codecov.io/gh/dry-python/lambdas/branch/master/graph/badge.svg)](https://codecov.io/gh/dry-python/lambdas)
 [![Documentation Status](https://readthedocs.org/projects/lambdas/badge/?version=latest)](https://lambdas.readthedocs.io/en/latest/?badge=latest)
 [![Python Version](https://img.shields.io/pypi/pyversions/lambdas.svg)](https://pypi.org/project/lambdas/)
 [![wemake-python-styleguide](https://img.shields.io/badge/style-wemake-000000.svg)](https://github.com/wemake-services/wemake-python-styleguide) [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
