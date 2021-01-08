@@ -70,6 +70,14 @@ class _MathExpression(object):  # noqa: WPS214
     def __init__(self) -> None:
         self._operations: List[Callable[[_Number], _Number]] = []
 
+    def __call__(self, number: _Number) -> _Number:
+        first_operation, *rest_of_the_operations = self._operations
+        return reduce(
+            lambda partial_result, operation: operation(partial_result),
+            rest_of_the_operations,
+            first_operation(number),
+        )
+
     def __add__(self, other: _Number) -> '_MathExpression':
         return self._add_operation(_flip(operator.add), other)
 
@@ -111,14 +119,6 @@ class _MathExpression(object):  # noqa: WPS214
 
     def __rpow__(self, other: _Number) -> '_MathExpression':
         return self._add_operation(operator.pow, other)
-
-    def __call__(self, number: _Number) -> _Number:
-        first_operation, *rest_of_the_operations = self._operations
-        return reduce(
-            lambda partial_result, operation: operation(partial_result),
-            rest_of_the_operations,
-            first_operation(number),
-        )
 
     def _add_operation(
         self,
