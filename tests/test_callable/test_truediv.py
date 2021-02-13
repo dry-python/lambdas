@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
+import math
+
 from lambdas import _
 
 
 def test_truediv():
     """Ensures that add works correctly."""
-    assert (_ / 6)(39) == 6.5
+    math_expression = (_ / 6)
+    assert math.isclose(math_expression(39), 6.5)  # type: ignore
 
 
 def test_rtruediv():
