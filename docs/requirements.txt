@@ -1,0 +1,14 @@
+# This file is used to setup env
+# to generate documentation.
+
+sphinx==4.0.2
+sphinx_autodoc_typehints==1.12.0
+sphinxcontrib-mermaid==0.6.3
+sphinx-typlog-theme==0.8.0
+tomlkit==0.7.2
+m2r2==0.2.7
+pygments==2.9.0
+
+# TODO: Remove this lock when we found and fix the route case.
+# See: https://github.com/typlog/sphinx-typlog-theme/issues/22
+jinja2==2.11.3
