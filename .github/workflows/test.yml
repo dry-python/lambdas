@@ -19,11 +19,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install poetry
-      run: |
-        curl -sSL \
-          "https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py" | python
-        # Adding `poetry` to `$PATH`:
-        echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+      uses: abatilo/actions-poetry@v2.0.0
+      with:
+        poetry-version: "1.1.2"
 
     - name: Set up cache
       uses: actions/cache@v2
