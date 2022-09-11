@@ -1,0 +1,15 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: nitpick
+    versions:
+    - 0.24.0
+  - dependency-name: wemake-python-styleguide
+    versions:
+    - 0.15.0
+    - 0.15.1
