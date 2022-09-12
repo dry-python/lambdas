@@ -3,7 +3,7 @@
   main: |
     from lambdas import _
 
-    reveal_type((_ + 1)(2))  # N: Revealed type is 'Union[builtins.int, builtins.float, builtins.complex]'
+    reveal_type((_ + 1)(2))  # N: Revealed type is "builtins.complex"
 
 
 - case: callable_add_wrong
@@ -13,5 +13,5 @@
 
     reveal_type((_ + 1)('a'))
   out: |
+    main:3: note: Revealed type is "builtins.complex"
     main:3: error: Argument 1 to "__call__" of "_MathExpression" has incompatible type "str"; expected "Union[int, float, complex]"
-    main:3: note: Revealed type is 'Union[builtins.int, builtins.float, builtins.complex]'
