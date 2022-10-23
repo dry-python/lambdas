@@ -16,7 +16,7 @@ python-versions = "*"
 
 [[package]]
 name = "ast-decompiler"
-version = "0.6.0"
+version = "0.7.0"
 description = "Python module to decompile AST to Python code"
 category = "dev"
 optional = false
@@ -417,14 +417,14 @@ flake8 = "*"
 
 [[package]]
 name = "flake8-pyi"
-version = "22.8.2"
+version = "22.10.0"
 description = "A plugin for flake8 to enable linting .pyi files."
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 
 [package.dependencies]
-ast-decompiler = {version = "<1.0", markers = "python_version < \"3.9\""}
+ast-decompiler = {version = ">=0.7.0,<1.0", markers = "python_version < \"3.9\""}
 flake8 = ">=3.2.1,<6.0.0"
 pyflakes = ">=2.1.1"
 
@@ -1437,7 +1437,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "c50a99bbbcedd53d0eb72a821cf734a3d6d660536b04c815dbdb0904e4bee00c"
+content-hash = "2b9f3eaecafe60fb71e06ff76bedb1622777c3810a90548d8be4dcc947abc237"
 
 [metadata.files]
 alabaster = [
@@ -1449,8 +1449,8 @@ appdirs = [
     {file = "appdirs-1.4.4.tar.gz", hash = "sha256:7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"},
 ]
 ast-decompiler = [
-    {file = "ast_decompiler-0.6.0-py3-none-any.whl", hash = "sha256:68ad813b609a405d26d8d29605c8d12cd282278533e26adfa0048991c81337c8"},
-    {file = "ast_decompiler-0.6.0.tar.gz", hash = "sha256:c9d10305a0de3c37f7db2f61c0fae8141aedfe7b40307d40195c1f1e5f5733f3"},
+    {file = "ast_decompiler-0.7.0-py3-none-any.whl", hash = "sha256:5ebd37ba129227484daff4a15dd6056d87c488fa372036dd004ee84196b207d3"},
+    {file = "ast_decompiler-0.7.0.tar.gz", hash = "sha256:efc3a507e5f8963ec7b4b2ce2ea693e3755c2f52b741c231bc344a4526738337"},
 ]
 astor = [
     {file = "astor-0.8.1-py2.py3-none-any.whl", hash = "sha256:070a54e890cefb5b3739d19f30f5a5ec840ffc9c50ffa7d23cc9fc1a38ebbfc5"},
@@ -1638,8 +1638,8 @@ flake8-polyfill = [
     {file = "flake8_polyfill-1.0.2-py2.py3-none-any.whl", hash = "sha256:12be6a34ee3ab795b19ca73505e7b55826d5f6ad7230d31b18e106400169b9e9"},
 ]
 flake8-pyi = [
-    {file = "flake8-pyi-22.8.2.tar.gz", hash = "sha256:1a798300898502c3064e6f46d2bdd6f64423da98ab5168dfa1797598f0a8ac7a"},
-    {file = "flake8_pyi-22.8.2-py37-none-any.whl", hash = "sha256:a5fd285a17e3e5186450c81163e9034d200749daf456130cfb403132e6d1ac14"},
+    {file = "flake8-pyi-22.10.0.tar.gz", hash = "sha256:9dff4e126b2657c0b1e1c8c781199310e56fdc38f51669112849a557de3be543"},
+    {file = "flake8_pyi-22.10.0-py37-none-any.whl", hash = "sha256:11daccd581a2e543cb35624022a143d5b4d7a3a930cf75b33f10b61b6ec853cb"},
 ]
 flake8-pytest = [
     {file = "flake8-pytest-1.4.tar.gz", hash = "sha256:19f543b2d1cc89d61b76f19d0a9e58e9a110a035175f701b3425c363a7732c56"},
