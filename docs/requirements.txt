@@ -7,7 +7,7 @@ sphinxcontrib-mermaid==0.6.3
 sphinx-typlog-theme==0.8.0
 tomlkit==0.7.2
 m2r2==0.2.7
-pygments==2.13.0
+pygments==2.14.0
 
 # TODO: Remove this lock when we found and fix the route case.
 # See: https://github.com/typlog/sphinx-typlog-theme/issues/22
