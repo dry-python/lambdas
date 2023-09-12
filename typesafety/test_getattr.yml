@@ -20,4 +20,4 @@
     reveal_type((_.attr)(Test()))
   out: |
     main:6: note: Revealed type is "<nothing>"
-    main:6: error: Argument 1 has incompatible type "Test"; expected "_LambdaDynamicProtocol[<nothing>]"
+    main:6: error: Argument 1 has incompatible type "Test"; expected "_LambdaDynamicProtocol[<nothing>]"  [arg-type]
