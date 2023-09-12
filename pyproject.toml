@@ -58,7 +58,7 @@ safety = "^2.1"
 pytest = "^7.1"
 pytest-cov = "^4.0"
 pytest-randomly = "^3.12"
-pytest-mypy-plugins = "^1.10"
+pytest-mypy-plugins = "^1.11"
 
 sphinx = "^5.1"
 sphinx-autodoc-typehints = "^1.19"
