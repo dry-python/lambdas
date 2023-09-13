@@ -10,6 +10,7 @@ See (0Ver)[https://0ver.org/].
 ### Misc
 
 * Breaking: Drops Python 3.6 support
+* Breaking: Drops Python 3.7 support
 
 ## Version 0.1.0
 

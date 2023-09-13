@@ -22,5 +22,5 @@
     reveal_type(_[0]({'item': 1}))
   out: |
     main:3: note: Revealed type is "builtins.int"
-    main:3: error: Dict entry 0 has incompatible type "str": "int"; expected "int": "int"
+    main:3: error: Dict entry 0 has incompatible type "str": "int"; expected "int": "int"  [dict-item]
 
