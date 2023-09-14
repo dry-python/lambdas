@@ -5,7 +5,12 @@ Versions before `1.0.0` are `0Ver`-based:
 incremental in minor, bugfixes only are patches.
 See (0Ver)[https://0ver.org/].
 
-## Version 0.2.0 WIP
+## Version 0.2.0
+
+### Features
+
+* Add support for `_.attr` call
+* Add complex math expressions support
 
 ### Misc
 

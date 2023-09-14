@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lambdas"
-version = "0.1.0"
+version = "0.2.0"
 description = "Typed lambdas that are short and readable"
 license = "BSD-2-Clause"
 
