@@ -60,6 +60,7 @@ sphinx-typlog-theme = "^0.8.0"
 doc8 = "^1.1.1"
 m2r2 = "^0.3.3.post2"
 tomlkit = "^0.12.1"
+pygments = "^2.16.1"
 
 [tool.nitpick]
 style = "https://raw.githubusercontent.com/wemake-services/wemake-python-styleguide/0.18.0/styles/nitpick-style-wemake.toml"
