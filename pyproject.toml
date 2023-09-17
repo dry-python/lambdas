@@ -53,11 +53,16 @@ pytest-cov = "^4.1"
 pytest-randomly = "^3.15"
 pytest-mypy-plugins = "^3.0"
 
+doc8 = "^1.1"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
 sphinx = "^6.2"
 sphinx-autodoc-typehints = "^1.23"
 sphinxcontrib-mermaid = "^0.9"
 sphinx-typlog-theme = "^0.8"
-doc8 = "^1.1"
 m2r2 = "^0.3"
 tomlkit = "^0.12"
 pygments = "^2.16"
