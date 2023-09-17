@@ -1,12 +1,23 @@
 version: 2
 
-python:
-  version: 3.7
-  install:
-    - requirements: docs/requirements.txt
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.10"
+  jobs:
+    pre_create_environment:
+      - asdf plugin add poetry
+      - asdf install poetry latest
+      - asdf global poetry latest
+      - poetry config virtualenvs.create false
+      - poetry export --with docs --format=requirements.txt --output=requirements.txt
 
 sphinx:
   configuration: docs/conf.py
   fail_on_warning: true
+
+python:
+  install:
+    - requirements: requirements.txt
 
 formats: all
