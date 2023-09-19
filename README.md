@@ -92,7 +92,7 @@ We can easily create math expressions:
 
 Work in progress:
 
-- `_.method()` is not supported yet for the same reason
+- `_.method()` is not supported yet, because we need a complex `mypy` plugin for this
 - `TypedDict`s are not tested with `__getitem__`
 - `__getitem__` does not work with list and tuples (collections), only dicts (mappings)
 
